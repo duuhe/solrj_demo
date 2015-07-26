@@ -27,7 +27,7 @@ public class SolrService extends BaseSolrService {
 			query.addFilterQuery(fields[i] + ":" + keys[i]);
 		}
 
-		// 设置起始位置与返回结果数
+		// 设置起始位置
 		query.setStart(start);
 		query.setRows(count);
 
