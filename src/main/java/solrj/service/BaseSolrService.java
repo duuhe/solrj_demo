@@ -5,6 +5,12 @@ import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @Description Solrj 使用demo
+ * @author Zhifeiyu
+ * @version 1.0
+ *
+ */
 public class BaseSolrService {
 	private static final String url = "http://192.168.1.111:8983/solr";
 	private static final String core = "demo";
