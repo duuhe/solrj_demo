@@ -4,6 +4,8 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import solrj.service.SolrService;
@@ -11,8 +13,19 @@ import solrj.service.SolrService;
 public class SolrServiceTest {
 	private SolrService solr = new SolrService();
 	
+	@Before
+	public void init(){
+		solr.init();
+	}
+	
+	@After
+	public void shutdown() {
+		solr.shutdown();
+	}
+	
 	@Test
 	public void search(){
+		
 		String field = "*";
 		String key = "*";
 		String sortFiled = "id";
@@ -36,5 +49,6 @@ public class SolrServiceTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 }

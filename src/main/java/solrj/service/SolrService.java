@@ -15,7 +15,6 @@ public class SolrService extends BaseSolrService {
 		return "demo";
 	}
 
-
 	public QueryResponse search(String field, String key, int start, int count,
 			String sortfield, Boolean sortflag) throws SolrServerException {
 

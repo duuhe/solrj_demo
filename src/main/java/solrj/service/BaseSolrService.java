@@ -19,27 +19,28 @@ public class BaseSolrService {
 	private static final String core = "demo";
 	protected SolrClient client;
 	protected Logger logger = null;
-	
-	public String getCore(){
-    	return core;
-    }
-	
-	public String getURL(){
-    	return url;
-    }
-	
+
+	public String getCore() {
+		return core;
+	}
+
+	public String getURL() {
+		return url;
+	}
+
 	public void init() {
-		client = new HttpSolrClient(getURL() + "/" + getCore());
 		logger = LoggerFactory.getLogger(this.getClass());
-		
-		logger.info("Running ......");
+
+		logger.info("Init client ......");
+		client = new HttpSolrClient(getURL() + "/" + getCore());
+
 	}
-	
+
 	public void shutdown() {
-		client.shutdown();
 		logger.info("Shutdown ......");
+		client.shutdown();
 	}
-	
+
 	/**
 	 * 
 	 * @param fields
@@ -66,7 +67,10 @@ public class BaseSolrService {
 			return null;
 		}
 
-		this.init();
+		if (null == client) {
+			logger.warn("Client is null.");
+			return null;
+		}
 
 		SolrQuery query = null;
 		// 初始化查询对象
@@ -93,8 +97,6 @@ public class BaseSolrService {
 
 		logger.info("Querying ......");
 		QueryResponse response = client.query(query);
-
-		this.shutdown();
 
 		return response;
 	}
