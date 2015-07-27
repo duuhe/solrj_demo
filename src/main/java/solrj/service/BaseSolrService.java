@@ -5,6 +5,7 @@ import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
+import org.apache.solr.client.solrj.response.SpellCheckResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,8 +16,8 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class BaseSolrService {
-	private static final String url = "http://192.168.1.111:8983/solr";
-	private static final String core = "demo";
+	private static final String url = "http://10.204.76.79:8983/solr";
+	private static final String core = "nubia_store";
 	protected SolrClient client;
 	protected Logger logger = null;
 
@@ -99,5 +100,31 @@ public class BaseSolrService {
 		QueryResponse response = client.query(query);
 
 		return response;
+	}
+
+	/**
+	 * 
+	 * 前置条件：定义searchComponent组件及handler，命名为suggest & /suggest
+	 * 
+	 * @param keyword
+	 *            关键字
+	 * @return 查询结果
+	 * @throws SolrServerException
+	 */
+	public SpellCheckResponse searchSuggest(String keyword)
+			throws SolrServerException {
+		SolrQuery query = new SolrQuery();
+
+		query.set("qt", "/suggest");
+		query.set("q", keyword);
+
+		logger.info("Suggest ......");
+		QueryResponse response = client.query(query);
+		// logger.info("Suggest time：" + response.getQTime());
+
+		SpellCheckResponse spellCheckResponse = response
+				.getSpellCheckResponse();
+
+		return spellCheckResponse;
 	}
 }
