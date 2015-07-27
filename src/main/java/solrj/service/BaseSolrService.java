@@ -16,8 +16,8 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class BaseSolrService {
-	private static final String url = "http://10.204.76.79:8983/solr";
-	private static final String core = "nubia_store";
+	private static final String url = "http://192.168.1.111:8983/solr";
+	private static final String core = "demo";
 	protected SolrClient client;
 	protected Logger logger = null;
 
@@ -104,7 +104,7 @@ public class BaseSolrService {
 
 	/**
 	 * 
-	 * 前置条件：定义searchComponent组件及handler，命名为suggest & /suggest
+	 * 前置条件：定义searchComponent(suggest)组件及handler(/suggest)
 	 * 
 	 * @param keyword
 	 *            关键字
