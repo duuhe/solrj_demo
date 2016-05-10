@@ -9,9 +9,11 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
 
-import client.SolrCloudClient;
-import client.ZSolrClient;
-import domain.Demo;
+import solrj.client.SolrCloudClient;
+import solrj.client.ZSolrClient;
+import solrj.domain.Demo;
+import solrj.indexer.BaseIndexer;
+import solrj.indexer.Indexer;
 
 public class BaseIndexerTest {
 	private String zkHost = "10.204.76.79:2181,10.204.76.80:2181,10.204.76.99:2181";
