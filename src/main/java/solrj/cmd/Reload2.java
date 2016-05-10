@@ -3,14 +3,14 @@ package solrj.cmd;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.request.CollectionAdminRequest;
 import org.apache.solr.client.solrj.response.CollectionAdminResponse;
-import org.apache.solr.common.util.NamedList;
 import solrj.client.SolrCloudClient;
 import solrj.client.ZSolrClient;
 
 import java.io.IOException;
-import java.util.Map;
 
 /**
+ * solr cloud reload collectios
+ *
  * Created by zfy on 2016-04-29.
  */
 public class Reload2 {

@@ -15,6 +15,10 @@ public class SolrSingleClient implements ZSolrClient {
 		client = new HttpSolrClient(url + "/" + core);
 	}
 
+	public SolrSingleClient(String url) {
+		client = new HttpSolrClient(url);
+	}
+
 	@Override
 	public SolrClient getClient() {
 		return client;
