@@ -9,7 +9,7 @@ import solrj.client.ZSolrClient;
 import java.io.IOException;
 
 /**
- * solr cloud reload collectios
+ * solr cloud reload collections
  *
  * Created by zfy on 2016-04-29.
  */
